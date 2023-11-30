@@ -6,9 +6,15 @@ const Card = (props)=>{
     const title=props.title;
     const publisher=props.publisher;
     const price=props.price
+    const userID=props.userID
 
     const handleChange =()=>{
-        alert("Successfully add to cart")
+        if(userID){
+            alert("Successfully add to cart")
+        }else{
+            alert("Please login")
+        }
+        
     }
 
     return(

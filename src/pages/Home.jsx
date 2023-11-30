@@ -5,9 +5,10 @@ import SearchBar from "../components/SearchBar";
 import Card from "../components/Card";
 import Content from "../components/Content";
 
-const Home = () =>{
+const Home = (props) =>{
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const userID=props.userID
 
 
     const fetchData = async () => {
@@ -47,6 +48,7 @@ useEffect(()=>{
               title={item.bookName}
               price={item.price}
               publisher={item.publisher}
+              userID={userID}
             />
           ))
         )}  
