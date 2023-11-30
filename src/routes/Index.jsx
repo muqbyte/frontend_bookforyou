@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import Login from '../pages/Login';
-import Register from '../pages/register';
+
+import Register from '../pages/Registration';
 import Home from '../pages/Home';
 // import Sell from '../pages/Sell';
 
@@ -70,12 +71,12 @@ import {
     useEffect(()=>{
         if(token){
             validityToken();
-        }
-    },[token]);
+        } else {
+            // If no token, navigate to login
+            navigate('/login');
+          }
+    },[]);
 
-    useEffect(() => {
-        console.log('USER ID', userID);
-      }, [userID]);
 
 
     return(

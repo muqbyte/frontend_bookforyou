@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from "react-router-dom";
-import Register from "../pages/register";
+import Register from "../pages/Registration";
 import Login from "../pages/Login";
 
 
