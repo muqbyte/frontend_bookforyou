@@ -12,7 +12,7 @@ const Home = () =>{
 
     const fetchData = async () => {
         try {
-          const response = await fetch('http://localhost:8080/fetchdata');
+          const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/fetchdata`);
           const result = await response.json();
           setData(result.data);
           console.log(data)

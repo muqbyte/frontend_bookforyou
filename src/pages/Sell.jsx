@@ -25,6 +25,7 @@ const Sell = (props) =>{
             const publisher = e.target.publisher.value;
             const year = e.target.year.value;
             const price = e.target.price.value;
+            const uploadPreset= import.meta.env.VITE_UPLOAD_PRESET
             // setImage(e.target.url.files[0])
             const url = e.target.url.files[0];
             // setLoginUserID(userID)
@@ -46,7 +47,7 @@ const Sell = (props) =>{
             // formData.append("year", year);
             // formData.append("price", price);
             formData.append("file", url);
-            formData.append("upload_preset", "rq8hxpw5")
+            formData.append("upload_preset", uploadPreset)
       
             console.log("FormData:", formData);
 
@@ -54,7 +55,7 @@ const Sell = (props) =>{
         
 
               try {
-                const res = await axios.post("https://api.cloudinary.com/v1_1/db1hdxmao/image/upload",formData)
+                const res = await axios.post(`${import.meta.env.VITE_BASE_CLOUDINARY_URL}`,formData)
                 console.log(res.data.url)
                 const imageUrl=res.data.url
                 const reqBody={
@@ -66,7 +67,7 @@ const Sell = (props) =>{
                   imageUrl
                 }
                 try {
-                  const res = await axios.post("http://localhost:8080/upload", reqBody);
+                  const res = await axios.post(`${import.meta.env.VITE_BASE_API_URL}/upload`, reqBody);
                   console.log(res);
                   alert("Successful!");
                   window.location.reload(false);
@@ -170,32 +171,3 @@ const Sell = (props) =>{
 
 export default Sell;
 
-// const [show, setShow] = useState(false);
-
-//     const handleClose = () => setShow(false);
-//     const handleShow = () => setShow(true);
-//     return(
-//         <div
-//         className="modal show"
-//         style={{ display: 'block', position: 'initial' }}
-//         >
-//              <Button variant="primary" onClick={handleShow}>
-//                 Launch demo modal
-//             </Button>
-//         <Modal.Dialog>
-//           <Modal.Header closeButton>
-//             <Modal.Title>My Cart</Modal.Title>
-//           </Modal.Header>
-        
-//           <Modal.Body >
-
-//           </Modal.Body>
-        
-//           {/* <Modal.Footer>
-//             <Button variant="secondary">Close</Button>
-//             <Button variant="primary">Proceed to Payment</Button>
-//           </Modal.Footer> */}
-//         </Modal.Dialog>
-//         </div>
-       
-//     )

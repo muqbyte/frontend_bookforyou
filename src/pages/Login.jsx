@@ -29,7 +29,7 @@ const navigateRegister = ()=>{
     
          try {
           // success scope
-          const res = await axios.post("http://localhost:8080/userLogin", reqBody);
+          const res = await axios.post(`${import.meta.env.VITE_BASE_API_URL}/userLogin`, reqBody);
           console.log(res);
           alert("Login successful!");
           cookies.set('token', res.data.token);

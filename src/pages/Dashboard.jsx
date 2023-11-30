@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Card from "../components/Card";
 import Content from "../components/Content";
 import Sell from "./Sell";
-import MyItem from "./MyItem";
+
 // import MyCart from "./MyItem";
 
 
@@ -21,7 +21,7 @@ const Dashboard = (props) =>{
 
     const fetchData = async () => {
         try {
-          const response = await fetch('http://localhost:8080/fetchdata');
+          const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/fetchdata`);
           const result = await response.json();
           setData(result.data);
           console.log(data)

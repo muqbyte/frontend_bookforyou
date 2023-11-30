@@ -55,7 +55,7 @@ import {
             const config ={
                 headers:{Authorization:`Bearer ${token}`}
             };
-            const res= await axios.get("http://localhost:8080/protectedController", config)
+            const res= await axios.get(`${import.meta.env.VITE_BASE_API_URL}/protectedController`, config)
             console.log(res)
             setUserID(res.data.data.user)
             console.log("USER ID",userID)

@@ -23,7 +23,7 @@ const handleSubmit =async(e)=>{
 
      try {
       // success scope
-      const res = await axios.post("http://localhost:8080/userRegistration", reqBody);
+      const res = await axios.post(`${import.meta.env.VITE_BASE_API_URL}/userRegistration`, reqBody);
       console.log(res);
       alert("Registration successful!");
       // redirect to login page
