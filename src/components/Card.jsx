@@ -25,6 +25,7 @@ const Card = (props)=>{
                         <p >{publisher}</p>
                         <p>{price}</p>
                         <a href="#" className="btn btn-primary" onClick={handleChange}>Add to cart</a>
+                        {/* buttin card */}
                     </div>
             </div>
     )   
